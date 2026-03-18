@@ -49,15 +49,6 @@ enable_expensive_resources    = false # true para habilitar NAT, EIP e Client VP
    terraform apply -var-file=secrets.auto.tfvars
    ```
 
-Limpeza (Cleanup)
-Quando não precisar mais do ambiente, execute:
-
-Bash
-terraform destroy -var-file=secrets.auto.tfvars
-A destruição deve usar o mesmo contexto de variáveis para que o Terraform localize os recursos criados.
-
-Segurança: Mantenha os ARNs dos certificados, o documento de metadados do IdP e o material da chave privada SSH em um cofre seguro (vault) ou gerenciador de segredos. Rotacione-os regularmente e reaplique a stack do Terraform sempre que as credenciais forem alteradas.
-
 ## Pós-Implantação
 
 - Use `terraform output aws_client_vpn_endpoint` para obter o ID e o nome DNS do endpoint da VPN.
